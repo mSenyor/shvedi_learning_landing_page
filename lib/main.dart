@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         backgroundColor: darkColor,
         leading: Image.asset('images/logo.png'),
-        title: Text("SHVEDI"),
+        title: const Text("SHVEDI"),
         actions: [
           TextButton(
             onPressed: (){},
@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text(
               "הכשרה מקצועית",
               style: GoogleFonts.karantina(
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontSize: 36,
                 ),
               ),
@@ -97,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text(
               "קריירה",
               style: GoogleFonts.karantina(
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontSize: 36,
                 ),
               ),
@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text(
               "שרותים לחברות",
               style: GoogleFonts.karantina(
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontSize: 36,
                 ),
               ),
@@ -125,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text(
               "יותר מתאורה",
               style: GoogleFonts.karantina(
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontSize: 36,
                 ),
               ),
@@ -139,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text(
               "על המיזם",
               style: GoogleFonts.karantina(
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontSize: 36,
                 ),
               ),
@@ -157,22 +157,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
             // visuals and slogan at the top of the page
-            ShvediVisualAndSlogan(),
+            const ShvediVisualAndSlogan(),
 
 
 
 
             // anecdotal info about the advertised offer
-            Container(
-              child: Text(
-                "אנחנו רוצים להזמין אותך לקחת חלק בקורס המקצועי היחיד מסוגו בארץ, ולהשתלב בתחום התאורה. לצבור בזמן קצר כמות של ידע וניסיון שבכל מצב אחר היה לוקח שנים של התלמדות בשטח. לתת לעצמך הזדמנות להפעיל גם את הראש, וגם את הגוף. לעבוד בלוקיישנים בכל הארץ, לממש את היצירתיות שלך, ותוך כדי גם להרוויח מעולה.",
-                textDirection: TextDirection.rtl,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.assistant(
-                  textStyle: TextStyle(
-                    color: lightColor,
-                    fontSize: 22,
-                  ),
+            Text(
+              "אנחנו רוצים להזמין אותך לקחת חלק בקורס המקצועי היחיד מסוגו בארץ, ולהשתלב בתחום התאורה. לצבור בזמן קצר כמות של ידע וניסיון שבכל מצב אחר היה לוקח שנים של התלמדות בשטח. לתת לעצמך הזדמנות להפעיל גם את הראש, וגם את הגוף. לעבוד בלוקיישנים בכל הארץ, לממש את היצירתיות שלך, ותוך כדי גם להרוויח מעולה.",
+              textDirection: TextDirection.rtl,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.assistant(
+                textStyle: const TextStyle(
+                  color: lightColor,
+                  fontSize: 22,
                 ),
               ),
             ),
@@ -180,9 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
             // contact form stuff
-            Container(
-              child: ContactForm(
-              ),
+            const ContactForm(
             ),
 
             // extra sell points beyond the screen edge
@@ -192,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
       // whatsapp link
-      floatingActionButton: ShvediContactButton(), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: const ShvediContactButton(), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

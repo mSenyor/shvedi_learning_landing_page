@@ -53,13 +53,13 @@ class StudentsSignupFormField extends StatelessWidget {
       child: SizedBox(
         width: fieldWidth,
         child: TextFormField(
-          style: TextStyle(color: warmWhite),
+          style: const TextStyle(color: warmWhite),
           textAlign: TextAlign.center,
           inputFormatters: inputFormatters,
           validator: validator,
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: TextStyle(color: coldWhite),
+            hintStyle: const TextStyle(color: coldWhite),
           ),
         ),
       ),

@@ -22,7 +22,7 @@ const contactMessage = "Hi, this is a test message for whatsapp contact button";
 
 String makeWhatsappUrl(String phoneToMessage, String messageContent) {
   String formattedMessage = messageContent.replaceAll(" ", "%20");
-  String url = "https://wa.me/"+phoneToMessage+"?text="+formattedMessage;
+  String url = "https://wa.me/$phoneToMessage?text=$formattedMessage";
   return url;
 }
 

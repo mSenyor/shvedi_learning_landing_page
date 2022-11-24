@@ -19,19 +19,17 @@ class ShvediVisualAndSlogan extends StatelessWidget {
             height: 600.0,
             // disableCenter: true,
             autoPlay: true,
-            autoPlayAnimationDuration: Duration(milliseconds: 2500),
+            autoPlayAnimationDuration: const Duration(milliseconds: 2500),
           ),
           items: carouselImages
-              .map((item) => Container(
-            child: Center(
-                child: Image.asset(item, fit: BoxFit.cover ,width: 1500)
-            ),
-          ),
+              .map((item) => Center(
+                  child: Image.asset(item, fit: BoxFit.cover ,width: 1500)
+              ),
           ).toList(),
         ),
 
         // slogan section
-        Container(
+        SizedBox(
           height: 600.0,
           child: Align(
             alignment: Alignment.bottomCenter,

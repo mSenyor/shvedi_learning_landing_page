@@ -20,7 +20,7 @@ class ShvediContactButton extends StatelessWidget {
         ),
         onPressed: _launchUrl,
         tooltip: 'דברו איתנו בווטסאפ',
-        child: Text("WHATSAPP"),
+        child: const Text("WHATSAPP"),
       ),
     );
   }

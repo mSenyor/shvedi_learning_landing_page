@@ -50,8 +50,9 @@ class _ContactFormState extends State<ContactForm> {
                   ),
                 ],
                 validator: (val) {
-                  if (val!.isValidName)
+                  if (val!.isValidName) {
                     return "שם לא תקין";
+                  }
                 },
               ),
               StudentsSignupFormField(
@@ -65,16 +66,18 @@ class _ContactFormState extends State<ContactForm> {
                   ),
                 ],
                 validator: (val) {
-                  if (val!.isValidPhone)
+                  if (val!.isValidPhone) {
                     return "המספר אינו תקין";
+                  }
                 },
               ),
               StudentsSignupFormField(
                 hintText: "אימייל",
                 fieldWidth: fieldSize,
                 validator: (val) {
-                  if (val!.isValidEmail)
+                  if (val!.isValidEmail) {
                     return "כתובת האימייל אינה תקינה";
+                  }
                 },
               ),
 
@@ -86,12 +89,12 @@ class _ContactFormState extends State<ContactForm> {
             child: TextButton(
               style: TextButton.styleFrom(
                 backgroundColor: coldWhite,
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   color: primaryColor,
                 )
               ),
               onPressed: (){},
-              child: Text(
+              child: const Text(
                 'חזרו אלי',
               ),
             ),

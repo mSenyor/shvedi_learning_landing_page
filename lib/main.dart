@@ -1,12 +1,11 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:shvedi_learning_landing_page/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shvedi_learning_landing_page/contact_form.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:shvedi_learning_landing_page/shvedi_contact_button.dart';
+import 'package:shvedi_learning_landing_page/shvedi_visual_and_slogan.dart';
 
 
-final Uri _url = Uri.parse(getWhatsappUrl());
 
 
 void main() {
@@ -57,18 +56,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -170,78 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
             // visuals and slogan at the top of the page
-            new Stack(
-              children: <Widget>[
-
-                // visuals section
-                CarouselSlider(
-                  options: CarouselOptions(
-                    height: 600.0,
-                    // disableCenter: true,
-                    autoPlay: true,
-                    autoPlayAnimationDuration: Duration(milliseconds: 2500),
-                  ),
-                  items: carouselImages
-                      .map((item) => Container(
-                        child: Center(
-                          child: Image.asset(item, fit: BoxFit.cover ,width: 1500)
-                        ),
-                      ),
-                  ).toList(),
-                ),
-
-                // slogan section
-                Container(
-                  height: 600.0,
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Row(
-                      children: [
-                        Flexible(
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Stack(
-                              children: <Widget>[
-                                // stroke as border
-                                Text(
-                                  // 'משפט מעולה שעושה חשק להמשיך לקרוא עוד',
-                                  'יש לך הזדמנות להיכנס לתחום תאורת הבמה עם ייתרון משמעותי על כולם, ולהינות ממקצוע נדיר נדרש ורווחי',
-                                  style: GoogleFonts.karantina(
-                                    textStyle: TextStyle(
-                                      // color: Colors.white,
-                                      fontSize: 52.0,
-                                      fontWeight: FontWeight.bold,
-                                      foreground: Paint()
-                                        ..style = PaintingStyle.stroke
-                                        ..strokeWidth = 6
-                                        ..color = Colors.black,
-                                    ),
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                                //solid text fill
-                                Text(
-                                  // 'משפט מעולה שעושה חשק להמשיך לקרוא עוד',
-                                  'יש לך הזדמנות להיכנס לתחום תאורת הבמה עם ייתרון משמעותי על כולם, ולהינות ממקצוע נדיר נדרש ורווחי',
-                                  style: GoogleFonts.karantina(
-                                    textStyle: TextStyle(
-                                      fontSize: 52.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: coldWhite,
-                                    ),
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            ShvediVisualAndSlogan(),
 
 
 
@@ -250,6 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               child: Text(
                 "אנחנו רוצים להזמין אותך לקחת חלק בקורס המקצועי היחיד מסוגו בארץ, ולהשתלב בתחום התאורה. לצבור בזמן קצר כמות של ידע וניסיון שבכל מצב אחר היה לוקח שנים של התלמדות בשטח. לתת לעצמך הזדמנות להפעיל גם את הראש, וגם את הגוף. לעבוד בלוקיישנים בכל הארץ, לממש את היצירתיות שלך, ותוך כדי גם להרוויח מעולה.",
+                textDirection: TextDirection.rtl,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.assistant(
                   textStyle: TextStyle(
@@ -275,26 +192,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
       // whatsapp link
-      floatingActionButton: SizedBox(
-        height: 100,
-        width: 200,
-        child: FloatingActionButton(
-          shape: BeveledRectangleBorder(
-            borderRadius: BorderRadius.circular(5.0)
-          ),
-          onPressed: _launchUrl,
-          tooltip: 'דברו איתנו בווטסאפ',
-          child: Text("WHATSAPP")
-        ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: ShvediContactButton(), // This trailing comma makes auto-formatting nicer for build methods.
     );
-  }
-}
-
-
-// url launcher stuff for the whatsapp contact button
-Future<void> _launchUrl() async {
-  if (!await launchUrl(_url)){
-    throw 'Could not launch $_url';
   }
 }

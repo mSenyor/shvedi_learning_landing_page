@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:shvedi_learning_landing_page/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shvedi_learning_landing_page/contact_form.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+
+final Uri _url = Uri.parse(getWhatsappUrl());
+
 
 void main() {
   runApp(const MyApp());
@@ -73,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
@@ -243,7 +249,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // anecdotal info about the advertised offer
             Container(
               child: Text(
-                "אנחנו רוצים להזמין אותך לקחת חלק בקורס המקצועי היחיד מסוגו בארץ ולהשתלב בתחום התאורה. לצבור בתוך שבועות, כמות של ידע וניסיון, שבכל מצב אחר היה לוקח שנים של התלמדות בשטח, או אפילו עשורים. לתת לעצמך הזדמנות להפעיל גם את הראש וגם את הגוף, לעבוד בלוקיישנים בכל הארץ, לממש את היצירתיות שלך ולפתור בעיות, ותוך כדי גם להרוויח מעולה.",
+                "אנחנו רוצים להזמין אותך לקחת חלק בקורס המקצועי היחיד מסוגו בארץ, ולהשתלב בתחום התאורה. לצבור בזמן קצר כמות של ידע וניסיון שבכל מצב אחר היה לוקח שנים של התלמדות בשטח. לתת לעצמך הזדמנות להפעיל גם את הראש, וגם את הגוף. לעבוד בלוקיישנים בכל הארץ, לממש את היצירתיות שלך, ותוך כדי גם להרוויח מעולה.",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.assistant(
                   textStyle: TextStyle(
@@ -276,11 +282,19 @@ class _MyHomePageState extends State<MyHomePage> {
           shape: BeveledRectangleBorder(
             borderRadius: BorderRadius.circular(5.0)
           ),
-          onPressed: _incrementCounter,
-          tooltip: 'Increment',
+          onPressed: _launchUrl,
+          tooltip: 'דברו איתנו בווטסאפ',
           child: Text("WHATSAPP")
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+
+// url launcher stuff for the whatsapp contact button
+Future<void> _launchUrl() async {
+  if (!await launchUrl(_url)){
+    throw 'Could not launch $_url';
   }
 }

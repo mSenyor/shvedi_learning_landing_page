@@ -36,9 +36,24 @@ class _ContactFormState extends State<ContactForm> {
       child: Column(
         children: [
           Row(
+            textDirection: TextDirection.rtl,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
+              StudentsSignupFormField(
+                hintText: "שם",
+                fieldWidth: fieldSize,
+                inputFormatters: [
+                  FilteringTextInputFormatter.allow(
+                    RegExp(
+                        r"[a-zA-Z]+|\s"
+                    ),
+                  ),
+                ],
+                validator: (val) {
+                  if (val!.isValidName)
+                    return "שם לא תקין";
+                },
+              ),
               StudentsSignupFormField(
                 hintText: "נייד",
                 fieldWidth: fieldSize,
@@ -62,21 +77,7 @@ class _ContactFormState extends State<ContactForm> {
                     return "כתובת האימייל אינה תקינה";
                 },
               ),
-              StudentsSignupFormField(
-                hintText: "שם",
-                fieldWidth: fieldSize,
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(
-                    RegExp(
-                        r"[a-zA-Z]+|\s"
-                    ),
-                  ),
-                ],
-                validator: (val) {
-                  if (val!.isValidName)
-                    return "שם לא תקין";
-                },
-              ),
+
             ],
           ),
           SizedBox(

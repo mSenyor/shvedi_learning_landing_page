@@ -43,6 +43,9 @@ dependencies:
   #google fonts support
   google_fonts: ^3.0.0
 
+  #url launcher to use with the whatsapp contact button
+  url_launcher: ^6.1.7
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

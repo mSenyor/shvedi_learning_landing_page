@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shvedi_learning_landing_page/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shvedi_learning_landing_page/contact_form.dart';
+import 'package:shvedi_learning_landing_page/fader_and_slogan.dart';
 import 'package:shvedi_learning_landing_page/shvedi_contact_button.dart';
-import 'package:shvedi_learning_landing_page/shvedi_visual_and_slogan.dart';
 
 
 
@@ -155,9 +155,18 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
 
+            // alternative fading visuals
+            // FadingImagesVisual(),
+            //
+            // SizedBox(
+            //   child: VisualFrame(),
+            //   height: MediaQuery.of(context).size.height/3,
+            // ),
+            SizedBox(child: FaderAndSlogan(),
+            height: MediaQuery.of(context).size.height/4,),
 
             // visuals and slogan at the top of the page
-            const ShvediVisualAndSlogan(),
+            // const ShvediVisualAndSlogan(),
 
 
 
